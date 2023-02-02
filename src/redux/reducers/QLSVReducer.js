@@ -1,10 +1,10 @@
 const initialState = {
     mangSinhVien: [],
     sinhVienChiTiet: {
-        // maSV: "sv001",
-        // hoTen: "Nguyen Van A",
-        // sdt: "0123456",
-        // email: "@gmail.com"
+        maSV: "",
+        hoTen: "",
+        sdt: "",
+        email: ""
     }
 }
 

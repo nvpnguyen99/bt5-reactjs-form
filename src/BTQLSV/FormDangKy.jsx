@@ -79,9 +79,16 @@ import { connect } from 'react-redux';
     }
   }
 
+  componentWillReceiveProps(newProps) {
+    this.setState({
+      values: newProps.sinhVienChiTiet
+    })
+  }
+
 
   render() {
-    let {maSV, hoTen, sdt, email} = this.props.sinhVienChiTiet;
+    // let {maSV, hoTen, sdt, email} = this.props.sinhVienChiTiet;
+    let {maSV, hoTen, sdt, email} = this.state.values;
     return (
       <div className="row">
       <div className="col-12">
