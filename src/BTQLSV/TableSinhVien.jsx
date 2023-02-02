@@ -11,8 +11,20 @@ class TableSinhVien extends Component {
         <td>{sv.sdt}</td>
         <td>{sv.email}</td>
         <td>
-          <button className="btn btn-success">Sửa</button>
-          <button className="btn btn-danger">Xoá</button>
+          <button onClick={() => {
+             let action = {
+              type: "XEM_CHI_TIET",
+              sv: sv
+            }
+            this.props.dispatch(action);
+          }} className="btn btn-success">Xem</button>
+          <button onClick={() => {
+            let action = {
+              type: "XOA_SV",
+              maSV: sv.maSV
+            }
+            this.props.dispatch(action);
+          }} className="btn btn-danger">Xoá</button>
         </td>
       </tr>
     })
