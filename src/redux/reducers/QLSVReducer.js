@@ -1,3 +1,5 @@
+import swal from 'sweetalert';
+
 const initialState = {
     mangSinhVien: [],
     sinhVienChiTiet: {
@@ -12,6 +14,7 @@ export const QLSVReducer = (state = initialState, action) => {
     switch (action.type) {
         case "THEM_SV":
             state.mangSinhVien = [...state.mangSinhVien, action.sv]
+            swal("SUCCESS!", "Thêm sinh viên thành công!", "success");
             return { ...state };
 
         case "XOA_SV":

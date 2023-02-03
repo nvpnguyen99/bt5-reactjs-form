@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
+import swal from 'sweetalert';
 
 class FormDangKy extends Component {
 
@@ -90,7 +91,7 @@ class FormDangKy extends Component {
      
       this.props.dispatch(action)
     } else {
-      alert("Form không hợp lệ");
+      swal("WARNING", "Form không hợp lệ!", "warning");
     }
   }
 

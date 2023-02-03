@@ -15,14 +15,11 @@ class TableSinhVien extends Component {
   }
 
   renderTableSinhVien = () => {
-    let mangTK = [];
     let keyWordSearch = this.state.keyword.toLowerCase().replace(/\s/g, "");
-    this.props.mangSinhVien.map((sv) => {
+    let mangTK = this.props.mangSinhVien.filter((sv) => {
       let maSVTK = sv.maSV.toLowerCase().replace(/\s/g, "");
       let hoTenTK = sv.hoTen.toLowerCase().replace(/\s/g, "");
-      if ((maSVTK.indexOf(keyWordSearch) > -1) || (hoTenTK.indexOf(keyWordSearch) > -1)) {
-        mangTK.push(sv);
-      }
+          return (maSVTK.indexOf(keyWordSearch) > -1) || (hoTenTK.indexOf(keyWordSearch) > -1)
     })
     return mangTK.map((sv) => {
       return <tr key={sv.maSV}>
