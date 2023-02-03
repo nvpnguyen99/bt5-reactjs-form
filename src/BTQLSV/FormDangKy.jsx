@@ -58,7 +58,6 @@ class FormDangKy extends Component {
     //ngăn hành động load lại trang khi submit
     event.preventDefault();
 
-    console.log(this.state);
     let isValid = true;
     //kiểm tra errors còn chứa nội dung nào lỗi không
     for (const property in this.state.errors) {
@@ -99,7 +98,6 @@ class FormDangKy extends Component {
     let maSVReadOnly = false;
     let maSVCss = {};
     let capNhatInfo = "";
-    console.log("renderMaSV")
     if (this.props.button == "update") {
       maSVReadOnly = true;
       maSVCss = {backgroundColor: "#ffcca7"};

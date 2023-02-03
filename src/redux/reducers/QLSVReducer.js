@@ -12,7 +12,6 @@ export const QLSVReducer = (state = initialState, action) => {
     switch (action.type) {
         case "THEM_SV":
             state.mangSinhVien = [...state.mangSinhVien, action.sv]
-            console.log("THEM")
             return { ...state };
 
         case "XOA_SV":
