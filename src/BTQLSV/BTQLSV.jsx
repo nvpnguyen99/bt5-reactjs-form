@@ -6,6 +6,7 @@ export default class BTQLSV extends Component {
     render() {
         return (
             <div className='container py-5'>
+         
                 <FormDangKy/>
                 <TableSinhVien/>
             </div>

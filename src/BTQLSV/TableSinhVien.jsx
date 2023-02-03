@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
+
 class TableSinhVien extends Component {
 
   renderTableSinhVien = () => {
@@ -12,7 +13,7 @@ class TableSinhVien extends Component {
         <td>{sv.email}</td>
         <td>
           <button onClick={() => {
-             let action = {
+            let action = {
               type: "XEM_CHI_TIET",
               sv: sv
             }
@@ -31,27 +32,38 @@ class TableSinhVien extends Component {
   }
 
   render() {
-    console.log(this.props)
     return (
-      <div className="row">
-        <div className="col-12">
-          <table className="table">
-            <thead className='bg-dark text-white'>
-              <tr>
-                <th scope="col">Mã SV</th>
-                <th scope="col">Họ tên</th>
-                <th scope="col">Số điện thoại</th>
-                <th scope="col">Email</th>
-                <th scope="col"></th>
-              </tr>
-            </thead>
-            <tbody>
-              {this.renderTableSinhVien()}
-            </tbody>
-          </table>
-
+      <>
+        <div className="row mb-1 mt-5">
+          <div className="form-group col-md-9">
+            <input id="exampleFormControlInput5" type="email" placeholder="What're you searching for?" className="form-control form-control-underlined" />
+          </div>
+          <div className="form-group col-md-3">
+            <button type="submit" className="btn btn-primary rounded-pill btn-block shadow-sm">Search</button>
+          </div>
         </div>
-      </div>
+
+        <div className="row">
+          <div className="col-12">
+            <table className="table">
+              <thead className='bg-dark text-white'>
+                <tr>
+                  <th scope="col">Mã SV</th>
+                  <th scope="col">Họ tên</th>
+                  <th scope="col">Số điện thoại</th>
+                  <th scope="col">Email</th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody>
+                {this.renderTableSinhVien()}
+              </tbody>
+            </table>
+
+          </div>
+        </div>
+      </>
+
     )
   }
 }
