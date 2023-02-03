@@ -4,8 +4,27 @@ import { connect } from 'react-redux'
 
 class TableSinhVien extends Component {
 
+  state = {
+    keyword: ""
+  }
+
+  handleOnChange = (event) => {
+    this.setState({
+      keyword: event.target.value
+    })
+  }
+
   renderTableSinhVien = () => {
-    return this.props.mangSinhVien.map((sv) => {
+    let mangTK = [];
+    let keyWordSearch = this.state.keyword.toLowerCase().replace(/\s/g, "");
+    this.props.mangSinhVien.map((sv) => {
+      let maSVTK = sv.maSV.toLowerCase().replace(/\s/g, "");
+      let hoTenTK = sv.hoTen.toLowerCase().replace(/\s/g, "");
+      if ((maSVTK.indexOf(keyWordSearch) > -1) || (hoTenTK.indexOf(keyWordSearch) > -1)) {
+        mangTK.push(sv);
+      }
+    })
+    return mangTK.map((sv) => {
       return <tr key={sv.maSV}>
         <td>{sv.maSV}</td>
         <td>{sv.hoTen}</td>
@@ -31,17 +50,26 @@ class TableSinhVien extends Component {
     })
   }
 
+  componentWillReceiveProps(newProps) {
+    this.setState({
+      keyword: ""
+    })
+  }
+
   render() {
     return (
       <>
-        <div className="row mb-1 mt-5">
-          <div className="form-group col-md-9">
-            <input id="exampleFormControlInput5" type="email" placeholder="What're you searching for?" className="form-control form-control-underlined" />
+        <form>
+          <div className="input-group mt-5 mb-2">
+            <div className="input-group-prepend">
+              <button id="button-addon8" type="submit" className="btn btn-primary"><i className="fa fa-search" /></button>
+            </div>
+            <input onChange={this.handleOnChange} value={this.state.keyword} name="keyword" type="search" placeholder="Nhập từ bạn cần tìm?" aria-describedby="button-addon8" className="form-control" />
           </div>
-          <div className="form-group col-md-3">
-            <button type="submit" className="btn btn-primary rounded-pill btn-block shadow-sm">Search</button>
-          </div>
-        </div>
+
+        </form>
+
+
 
         <div className="row">
           <div className="col-12">

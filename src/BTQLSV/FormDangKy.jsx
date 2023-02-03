@@ -159,6 +159,17 @@ class FormDangKy extends Component {
                   type: "RESET_FORM",
                   button: "add"
                 }
+
+                this.setState({
+                  ...this.state,
+                  errors: {
+                    maSV: "",
+                    hoTen: "",
+                    sdt: "",
+                    email: ""
+                  }
+                })
+
                 this.props.dispatch(action)
               }} className="btn btn-info mx-2">Reset</button>
             </div>
